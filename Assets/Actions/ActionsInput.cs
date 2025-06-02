@@ -88,7 +88,205 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
     ""name"": ""ActionsInput"",
     ""maps"": [
         {
-            ""name"": ""Movement"",
+            ""name"": ""1P Input"",
+            ""id"": ""481cf26d-0487-4aca-ad80-0e0e9cc9ff52"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""fbc5d4d3-334e-4f73-8c38-96acbdbbfd80"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""e68a0963-842e-4493-9952-f1ce8dafb992"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Command Input"",
+                    ""type"": ""Value"",
+                    ""id"": ""12bafd17-0d7a-49b6-855f-68c77e106af4"",
+                    ""expectedControlType"": ""Integer"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""BasicAtk"",
+                    ""type"": ""Button"",
+                    ""id"": ""0345e30d-645f-4497-81e8-bdabcea8b888"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""6d9637f2-7a87-4bee-b683-a30b1c379c09"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""22de2714-28f0-4872-99f5-47612b17e343"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""a8bd5dc1-b1ca-4a46-b8a7-2dfd6f6019d3"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""d61c1c8c-7028-4d11-8a54-741f1eae9464"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""613298aa-8545-40e1-b3c4-e2b0559240d9"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f3319810-9c40-4385-9278-230086c4a083"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f59da96-593c-41c3-9999-8faf8cbdb55e"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Command Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6fd20a05-ba10-4ed7-a284-6354a873be23"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Command Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8733c572-e60d-4ac5-9a1e-475f4ff22797"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Command Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e97d4d4e-2646-4852-8ecf-fbffc20fcce2"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Command Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""53b5fd1c-b325-4ab2-89e4-9048878c355b"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Command Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""235849f3-b7a8-466a-be5b-9a5b2d82d848"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Command Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c0fe6839-294e-4397-bfb4-ee95f226cf9e"",
+                    ""path"": ""<Keyboard>/N"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BasicAtk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7dbcaaf6-0263-4fad-97bc-1bfd79b48289"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BasicAtk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""2P Input"",
             ""id"": ""4f3bba94-8ed8-4bc1-b2df-3d70ebdcac8d"",
             ""actions"": [
                 {
@@ -104,6 +302,24 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""b1a1231f-2ae6-497a-8665-09dda5f4c9c6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Command Input"",
+                    ""type"": ""Value"",
+                    ""id"": ""a52d4f94-abcb-4684-a657-25e69a09c2f8"",
+                    ""expectedControlType"": ""Integer"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""BasicAtk"",
+                    ""type"": ""Button"",
+                    ""id"": ""63b9f6db-2ba4-441f-922b-eca5b8f4ba00"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -169,35 +385,18 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9082b48f-5afb-423e-b251-8b5d8d7a191a"",
-                    ""path"": ""<Keyboard>/c"",
+                    ""path"": ""<Keyboard>/numpad3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Command"",
-            ""id"": ""d85e101a-12bb-4eb4-98d2-1cd5487de5e5"",
-            ""actions"": [
-                {
-                    ""name"": ""Command Input"",
-                    ""type"": ""Value"",
-                    ""id"": ""d9dd3d49-1a92-4ca3-af9b-5c93d39e47ec"",
-                    ""expectedControlType"": ""Integer"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""f1ba2d54-2925-47b1-89ca-725c02d68cf5"",
-                    ""path"": ""<Keyboard>/z"",
+                    ""id"": ""e02be8ef-23ce-42ef-abd2-b991d02e44f6"",
+                    ""path"": ""<Keyboard>/numpad1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -207,8 +406,8 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""78908f3e-f74f-40d9-a44a-066e833c68bf"",
-                    ""path"": ""<Keyboard>/x"",
+                    ""id"": ""5dfe6f70-bf0e-42fb-9b21-f1f5a9384453"",
+                    ""path"": ""<Keyboard>/numpad2"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -218,7 +417,7 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3227b3d2-ab12-425e-83b0-330822343a19"",
+                    ""id"": ""64eb8f3c-cf48-4296-8e3f-84b50d931921"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -229,7 +428,7 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6445fde9-ff9b-4d08-9425-96700b2031f1"",
+                    ""id"": ""d8cdb05f-06b8-4bff-b56c-c8de87599259"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -240,7 +439,7 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""40917033-4e80-47eb-b8ac-25b402681c17"",
+                    ""id"": ""fcab1ae7-657b-457b-aa94-436aebd6cb45"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -251,7 +450,7 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c33e86e2-7e08-4427-8f66-723e81d8b760"",
+                    ""id"": ""faa677b0-516d-4494-8179-ae1bfe5e44b3"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -259,32 +458,26 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
                     ""action"": ""Command Input"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Atk"",
-            ""id"": ""af5fb5f3-1371-4bfa-802d-fbfb77354550"",
-            ""actions"": [
-                {
-                    ""name"": ""Atk"",
-                    ""type"": ""Button"",
-                    ""id"": ""3cd600d7-bf5d-442b-8c4c-b468ae920718"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""6f8ebce1-0e8e-448a-9266-1290e2d0cf94"",
-                    ""path"": ""<Keyboard>/x"",
+                    ""id"": ""3f21b446-7b1b-4d29-9372-44576311bb0b"",
+                    ""path"": ""<Keyboard>/numpad2"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Atk"",
+                    ""action"": ""BasicAtk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""06129f53-7536-4cab-bb7d-34946ffba24c"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BasicAtk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -293,23 +486,24 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Movement
-        m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
-        m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
-        m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
-        // Command
-        m_Command = asset.FindActionMap("Command", throwIfNotFound: true);
-        m_Command_CommandInput = m_Command.FindAction("Command Input", throwIfNotFound: true);
-        // Atk
-        m_Atk = asset.FindActionMap("Atk", throwIfNotFound: true);
-        m_Atk_Atk = m_Atk.FindAction("Atk", throwIfNotFound: true);
+        // 1P Input
+        m__1PInput = asset.FindActionMap("1P Input", throwIfNotFound: true);
+        m__1PInput_Move = m__1PInput.FindAction("Move", throwIfNotFound: true);
+        m__1PInput_Jump = m__1PInput.FindAction("Jump", throwIfNotFound: true);
+        m__1PInput_CommandInput = m__1PInput.FindAction("Command Input", throwIfNotFound: true);
+        m__1PInput_BasicAtk = m__1PInput.FindAction("BasicAtk", throwIfNotFound: true);
+        // 2P Input
+        m__2PInput = asset.FindActionMap("2P Input", throwIfNotFound: true);
+        m__2PInput_Move = m__2PInput.FindAction("Move", throwIfNotFound: true);
+        m__2PInput_Jump = m__2PInput.FindAction("Jump", throwIfNotFound: true);
+        m__2PInput_CommandInput = m__2PInput.FindAction("Command Input", throwIfNotFound: true);
+        m__2PInput_BasicAtk = m__2PInput.FindAction("BasicAtk", throwIfNotFound: true);
     }
 
     ~@ActionsInput()
     {
-        UnityEngine.Debug.Assert(!m_Movement.enabled, "This will cause a leak and performance issues, ActionsInput.Movement.Disable() has not been called.");
-        UnityEngine.Debug.Assert(!m_Command.enabled, "This will cause a leak and performance issues, ActionsInput.Command.Disable() has not been called.");
-        UnityEngine.Debug.Assert(!m_Atk.enabled, "This will cause a leak and performance issues, ActionsInput.Atk.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m__1PInput.enabled, "This will cause a leak and performance issues, ActionsInput._1PInput.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m__2PInput.enabled, "This will cause a leak and performance issues, ActionsInput._2PInput.Disable() has not been called.");
     }
 
     /// <summary>
@@ -382,34 +576,44 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Movement
-    private readonly InputActionMap m_Movement;
-    private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
-    private readonly InputAction m_Movement_Move;
-    private readonly InputAction m_Movement_Jump;
+    // 1P Input
+    private readonly InputActionMap m__1PInput;
+    private List<I_1PInputActions> m__1PInputActionsCallbackInterfaces = new List<I_1PInputActions>();
+    private readonly InputAction m__1PInput_Move;
+    private readonly InputAction m__1PInput_Jump;
+    private readonly InputAction m__1PInput_CommandInput;
+    private readonly InputAction m__1PInput_BasicAtk;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Movement".
+    /// Provides access to input actions defined in input action map "1P Input".
     /// </summary>
-    public struct MovementActions
+    public struct _1PInputActions
     {
         private @ActionsInput m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public MovementActions(@ActionsInput wrapper) { m_Wrapper = wrapper; }
+        public _1PInputActions(@ActionsInput wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Movement/Move".
+        /// Provides access to the underlying input action "_1PInput/Move".
         /// </summary>
-        public InputAction @Move => m_Wrapper.m_Movement_Move;
+        public InputAction @Move => m_Wrapper.m__1PInput_Move;
         /// <summary>
-        /// Provides access to the underlying input action "Movement/Jump".
+        /// Provides access to the underlying input action "_1PInput/Jump".
         /// </summary>
-        public InputAction @Jump => m_Wrapper.m_Movement_Jump;
+        public InputAction @Jump => m_Wrapper.m__1PInput_Jump;
+        /// <summary>
+        /// Provides access to the underlying input action "_1PInput/CommandInput".
+        /// </summary>
+        public InputAction @CommandInput => m_Wrapper.m__1PInput_CommandInput;
+        /// <summary>
+        /// Provides access to the underlying input action "_1PInput/BasicAtk".
+        /// </summary>
+        public InputAction @BasicAtk => m_Wrapper.m__1PInput_BasicAtk;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_Movement; }
+        public InputActionMap Get() { return m_Wrapper.m__1PInput; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -417,9 +621,9 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="MovementActions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="_1PInputActions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(MovementActions set) { return set.Get(); }
+        public static implicit operator InputActionMap(_1PInputActions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -427,17 +631,23 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="MovementActions" />
-        public void AddCallbacks(IMovementActions instance)
+        /// <seealso cref="_1PInputActions" />
+        public void AddCallbacks(I_1PInputActions instance)
         {
-            if (instance == null || m_Wrapper.m_MovementActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_MovementActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m__1PInputActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m__1PInputActionsCallbackInterfaces.Add(instance);
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @CommandInput.started += instance.OnCommandInput;
+            @CommandInput.performed += instance.OnCommandInput;
+            @CommandInput.canceled += instance.OnCommandInput;
+            @BasicAtk.started += instance.OnBasicAtk;
+            @BasicAtk.performed += instance.OnBasicAtk;
+            @BasicAtk.canceled += instance.OnBasicAtk;
         }
 
         /// <summary>
@@ -446,8 +656,8 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="MovementActions" />
-        private void UnregisterCallbacks(IMovementActions instance)
+        /// <seealso cref="_1PInputActions" />
+        private void UnregisterCallbacks(I_1PInputActions instance)
         {
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
@@ -455,111 +665,21 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
-        }
-
-        /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="MovementActions.UnregisterCallbacks(IMovementActions)" />.
-        /// </summary>
-        /// <seealso cref="MovementActions.UnregisterCallbacks(IMovementActions)" />
-        public void RemoveCallbacks(IMovementActions instance)
-        {
-            if (m_Wrapper.m_MovementActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        /// <summary>
-        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
-        /// </summary>
-        /// <remarks>
-        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
-        /// </remarks>
-        /// <seealso cref="MovementActions.AddCallbacks(IMovementActions)" />
-        /// <seealso cref="MovementActions.RemoveCallbacks(IMovementActions)" />
-        /// <seealso cref="MovementActions.UnregisterCallbacks(IMovementActions)" />
-        public void SetCallbacks(IMovementActions instance)
-        {
-            foreach (var item in m_Wrapper.m_MovementActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_MovementActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    /// <summary>
-    /// Provides a new <see cref="MovementActions" /> instance referencing this action map.
-    /// </summary>
-    public MovementActions @Movement => new MovementActions(this);
-
-    // Command
-    private readonly InputActionMap m_Command;
-    private List<ICommandActions> m_CommandActionsCallbackInterfaces = new List<ICommandActions>();
-    private readonly InputAction m_Command_CommandInput;
-    /// <summary>
-    /// Provides access to input actions defined in input action map "Command".
-    /// </summary>
-    public struct CommandActions
-    {
-        private @ActionsInput m_Wrapper;
-
-        /// <summary>
-        /// Construct a new instance of the input action map wrapper class.
-        /// </summary>
-        public CommandActions(@ActionsInput wrapper) { m_Wrapper = wrapper; }
-        /// <summary>
-        /// Provides access to the underlying input action "Command/CommandInput".
-        /// </summary>
-        public InputAction @CommandInput => m_Wrapper.m_Command_CommandInput;
-        /// <summary>
-        /// Provides access to the underlying input action map instance.
-        /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_Command; }
-        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
-        public void Enable() { Get().Enable(); }
-        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
-        public void Disable() { Get().Disable(); }
-        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
-        public bool enabled => Get().enabled;
-        /// <summary>
-        /// Implicitly converts an <see ref="CommandActions" /> to an <see ref="InputActionMap" /> instance.
-        /// </summary>
-        public static implicit operator InputActionMap(CommandActions set) { return set.Get(); }
-        /// <summary>
-        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
-        /// </summary>
-        /// <param name="instance">Callback instance.</param>
-        /// <remarks>
-        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
-        /// </remarks>
-        /// <seealso cref="CommandActions" />
-        public void AddCallbacks(ICommandActions instance)
-        {
-            if (instance == null || m_Wrapper.m_CommandActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_CommandActionsCallbackInterfaces.Add(instance);
-            @CommandInput.started += instance.OnCommandInput;
-            @CommandInput.performed += instance.OnCommandInput;
-            @CommandInput.canceled += instance.OnCommandInput;
-        }
-
-        /// <summary>
-        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
-        /// </summary>
-        /// <remarks>
-        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
-        /// </remarks>
-        /// <seealso cref="CommandActions" />
-        private void UnregisterCallbacks(ICommandActions instance)
-        {
             @CommandInput.started -= instance.OnCommandInput;
             @CommandInput.performed -= instance.OnCommandInput;
             @CommandInput.canceled -= instance.OnCommandInput;
+            @BasicAtk.started -= instance.OnBasicAtk;
+            @BasicAtk.performed -= instance.OnBasicAtk;
+            @BasicAtk.canceled -= instance.OnBasicAtk;
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="CommandActions.UnregisterCallbacks(ICommandActions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="_1PInputActions.UnregisterCallbacks(I_1PInputActions)" />.
         /// </summary>
-        /// <seealso cref="CommandActions.UnregisterCallbacks(ICommandActions)" />
-        public void RemoveCallbacks(ICommandActions instance)
+        /// <seealso cref="_1PInputActions.UnregisterCallbacks(I_1PInputActions)" />
+        public void RemoveCallbacks(I_1PInputActions instance)
         {
-            if (m_Wrapper.m_CommandActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m__1PInputActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -569,45 +689,60 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="CommandActions.AddCallbacks(ICommandActions)" />
-        /// <seealso cref="CommandActions.RemoveCallbacks(ICommandActions)" />
-        /// <seealso cref="CommandActions.UnregisterCallbacks(ICommandActions)" />
-        public void SetCallbacks(ICommandActions instance)
+        /// <seealso cref="_1PInputActions.AddCallbacks(I_1PInputActions)" />
+        /// <seealso cref="_1PInputActions.RemoveCallbacks(I_1PInputActions)" />
+        /// <seealso cref="_1PInputActions.UnregisterCallbacks(I_1PInputActions)" />
+        public void SetCallbacks(I_1PInputActions instance)
         {
-            foreach (var item in m_Wrapper.m_CommandActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m__1PInputActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_CommandActionsCallbackInterfaces.Clear();
+            m_Wrapper.m__1PInputActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="CommandActions" /> instance referencing this action map.
+    /// Provides a new <see cref="_1PInputActions" /> instance referencing this action map.
     /// </summary>
-    public CommandActions @Command => new CommandActions(this);
+    public _1PInputActions @_1PInput => new _1PInputActions(this);
 
-    // Atk
-    private readonly InputActionMap m_Atk;
-    private List<IAtkActions> m_AtkActionsCallbackInterfaces = new List<IAtkActions>();
-    private readonly InputAction m_Atk_Atk;
+    // 2P Input
+    private readonly InputActionMap m__2PInput;
+    private List<I_2PInputActions> m__2PInputActionsCallbackInterfaces = new List<I_2PInputActions>();
+    private readonly InputAction m__2PInput_Move;
+    private readonly InputAction m__2PInput_Jump;
+    private readonly InputAction m__2PInput_CommandInput;
+    private readonly InputAction m__2PInput_BasicAtk;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Atk".
+    /// Provides access to input actions defined in input action map "2P Input".
     /// </summary>
-    public struct AtkActions
+    public struct _2PInputActions
     {
         private @ActionsInput m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public AtkActions(@ActionsInput wrapper) { m_Wrapper = wrapper; }
+        public _2PInputActions(@ActionsInput wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Atk/Atk".
+        /// Provides access to the underlying input action "_2PInput/Move".
         /// </summary>
-        public InputAction @Atk => m_Wrapper.m_Atk_Atk;
+        public InputAction @Move => m_Wrapper.m__2PInput_Move;
+        /// <summary>
+        /// Provides access to the underlying input action "_2PInput/Jump".
+        /// </summary>
+        public InputAction @Jump => m_Wrapper.m__2PInput_Jump;
+        /// <summary>
+        /// Provides access to the underlying input action "_2PInput/CommandInput".
+        /// </summary>
+        public InputAction @CommandInput => m_Wrapper.m__2PInput_CommandInput;
+        /// <summary>
+        /// Provides access to the underlying input action "_2PInput/BasicAtk".
+        /// </summary>
+        public InputAction @BasicAtk => m_Wrapper.m__2PInput_BasicAtk;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_Atk; }
+        public InputActionMap Get() { return m_Wrapper.m__2PInput; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -615,9 +750,9 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="AtkActions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="_2PInputActions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(AtkActions set) { return set.Get(); }
+        public static implicit operator InputActionMap(_2PInputActions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -625,14 +760,23 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="AtkActions" />
-        public void AddCallbacks(IAtkActions instance)
+        /// <seealso cref="_2PInputActions" />
+        public void AddCallbacks(I_2PInputActions instance)
         {
-            if (instance == null || m_Wrapper.m_AtkActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_AtkActionsCallbackInterfaces.Add(instance);
-            @Atk.started += instance.OnAtk;
-            @Atk.performed += instance.OnAtk;
-            @Atk.canceled += instance.OnAtk;
+            if (instance == null || m_Wrapper.m__2PInputActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m__2PInputActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+            @CommandInput.started += instance.OnCommandInput;
+            @CommandInput.performed += instance.OnCommandInput;
+            @CommandInput.canceled += instance.OnCommandInput;
+            @BasicAtk.started += instance.OnBasicAtk;
+            @BasicAtk.performed += instance.OnBasicAtk;
+            @BasicAtk.canceled += instance.OnBasicAtk;
         }
 
         /// <summary>
@@ -641,21 +785,30 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="AtkActions" />
-        private void UnregisterCallbacks(IAtkActions instance)
+        /// <seealso cref="_2PInputActions" />
+        private void UnregisterCallbacks(I_2PInputActions instance)
         {
-            @Atk.started -= instance.OnAtk;
-            @Atk.performed -= instance.OnAtk;
-            @Atk.canceled -= instance.OnAtk;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+            @CommandInput.started -= instance.OnCommandInput;
+            @CommandInput.performed -= instance.OnCommandInput;
+            @CommandInput.canceled -= instance.OnCommandInput;
+            @BasicAtk.started -= instance.OnBasicAtk;
+            @BasicAtk.performed -= instance.OnBasicAtk;
+            @BasicAtk.canceled -= instance.OnBasicAtk;
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="AtkActions.UnregisterCallbacks(IAtkActions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="_2PInputActions.UnregisterCallbacks(I_2PInputActions)" />.
         /// </summary>
-        /// <seealso cref="AtkActions.UnregisterCallbacks(IAtkActions)" />
-        public void RemoveCallbacks(IAtkActions instance)
+        /// <seealso cref="_2PInputActions.UnregisterCallbacks(I_2PInputActions)" />
+        public void RemoveCallbacks(I_2PInputActions instance)
         {
-            if (m_Wrapper.m_AtkActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m__2PInputActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -665,27 +818,27 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="AtkActions.AddCallbacks(IAtkActions)" />
-        /// <seealso cref="AtkActions.RemoveCallbacks(IAtkActions)" />
-        /// <seealso cref="AtkActions.UnregisterCallbacks(IAtkActions)" />
-        public void SetCallbacks(IAtkActions instance)
+        /// <seealso cref="_2PInputActions.AddCallbacks(I_2PInputActions)" />
+        /// <seealso cref="_2PInputActions.RemoveCallbacks(I_2PInputActions)" />
+        /// <seealso cref="_2PInputActions.UnregisterCallbacks(I_2PInputActions)" />
+        public void SetCallbacks(I_2PInputActions instance)
         {
-            foreach (var item in m_Wrapper.m_AtkActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m__2PInputActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_AtkActionsCallbackInterfaces.Clear();
+            m_Wrapper.m__2PInputActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="AtkActions" /> instance referencing this action map.
+    /// Provides a new <see cref="_2PInputActions" /> instance referencing this action map.
     /// </summary>
-    public AtkActions @Atk => new AtkActions(this);
+    public _2PInputActions @_2PInput => new _2PInputActions(this);
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Movement" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "1P Input" which allows adding and removing callbacks.
     /// </summary>
-    /// <seealso cref="MovementActions.AddCallbacks(IMovementActions)" />
-    /// <seealso cref="MovementActions.RemoveCallbacks(IMovementActions)" />
-    public interface IMovementActions
+    /// <seealso cref="_1PInputActions.AddCallbacks(I_1PInputActions)" />
+    /// <seealso cref="_1PInputActions.RemoveCallbacks(I_1PInputActions)" />
+    public interface I_1PInputActions
     {
         /// <summary>
         /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
@@ -701,14 +854,6 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnJump(InputAction.CallbackContext context);
-    }
-    /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Command" which allows adding and removing callbacks.
-    /// </summary>
-    /// <seealso cref="CommandActions.AddCallbacks(ICommandActions)" />
-    /// <seealso cref="CommandActions.RemoveCallbacks(ICommandActions)" />
-    public interface ICommandActions
-    {
         /// <summary>
         /// Method invoked when associated input action "Command Input" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -716,20 +861,48 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCommandInput(InputAction.CallbackContext context);
-    }
-    /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Atk" which allows adding and removing callbacks.
-    /// </summary>
-    /// <seealso cref="AtkActions.AddCallbacks(IAtkActions)" />
-    /// <seealso cref="AtkActions.RemoveCallbacks(IAtkActions)" />
-    public interface IAtkActions
-    {
         /// <summary>
-        /// Method invoked when associated input action "Atk" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "BasicAtk" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAtk(InputAction.CallbackContext context);
+        void OnBasicAtk(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "2P Input" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="_2PInputActions.AddCallbacks(I_2PInputActions)" />
+    /// <seealso cref="_2PInputActions.RemoveCallbacks(I_2PInputActions)" />
+    public interface I_2PInputActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMove(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Jump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnJump(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Command Input" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCommandInput(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "BasicAtk" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBasicAtk(InputAction.CallbackContext context);
     }
 }

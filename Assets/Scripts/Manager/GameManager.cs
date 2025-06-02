@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Characters.Skill;
+using Characters.Skill.Naktis;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,7 +17,10 @@ namespace Manager
 
         public static GameManager Manager { get; private set; }
 
-        public Dictionary<string, List<string>> SkillCommand { get; set; }
+        public MethodGroup P1, P2;
+        public Dictionary<string, List<string>> P1Skills { get; set; }
+        public Dictionary<string, List<string>> P2Skills { get; set; }
+
 
         void Awake()
         {
@@ -25,7 +30,11 @@ namespace Manager
                 Manager = this;
             }
 
-            SkillCommand = new Dictionary<string, List<string>>();
+            P1 = GameObject.Find("1P").GetComponent<MethodGroup>();
+            P2 = GameObject.Find("2P").GetComponent<MethodGroup>();
+            P1Skills = new Dictionary<string, List<string>>();
+            P2Skills = new Dictionary<string, List<string>>();
+
             CommandInitialize();
         }
 
@@ -34,7 +43,7 @@ namespace Manager
             Initialize();
 
             wasPlayerLeft = true;
-            VarManager.Manager.Opponent.Flip();
+            P2.playerComponent.Flip();
         }
 
         void Update()
@@ -43,65 +52,80 @@ namespace Manager
 
             if (wasPlayerLeft != IsPlayerLeft)
             {
-                VarManager.Manager.Player.Flip();
-                VarManager.Manager.Opponent.Flip();
+                P1.playerComponent.Flip();
+                P2.playerComponent.Flip();
+
                 wasPlayerLeft = IsPlayerLeft;
             }
         }
 
         private bool CalculatePlayerIsLeft()
         {
-            float playerX = VarManager.Manager.PlayerGameObject.transform.position.x;
-            float opponentX = VarManager.Manager.OpponentGameObject.transform.position.x;
+            float playerX = P1.Player.transform.position.x;
+            float opponentX = P2.Player.transform.position.x;
             return playerX < opponentX;
         }
 
         private void Initialize()
         {
-            VarManager.Manager.PlayerCharacterName = "Naktis";
-            VarManager.Manager.OpponentCharacterName = "Naktis";
-
-            VarManager.Manager.PlayerGameObject = GameObject.Find("Player");
-            VarManager.Manager.OpponentGameObject = GameObject.Find("Opponent");
-
             Instantiate(
                 Resources.Load<GameObject>("Prefab/Naktis"),
-                VarManager.Manager.PlayerGameObject.transform).tag = "Player";
-
+                P1.transform).tag = "Player";
+            P1.Initialize();
             Instantiate(
                 Resources.Load<GameObject>("Prefab/Naktis"),
-                VarManager.Manager.OpponentGameObject.transform).tag = "Opponent";
-            Destroy(VarManager.Manager.OpponentGameObject.GetComponentInChildren<Punch>().gameObject);
-            VarManager.Manager.OpponentGameObject.GetComponentInChildren<Rigidbody2D>().constraints =
-                RigidbodyConstraints2D.FreezeAll;
-
-            VarManager.Manager.PlayerOpponentInitialize();
+                P2.transform).tag = "Opponent";
+            P2.Initialize();
         }
+
 
         private void CommandInitialize()
         {
-            List<string> fly = new List<string>();
-            fly.Add("UPARROW");
-            fly.Add("Z");
-            SkillCommand.Add("Fly", fly);
+            List<string> fly1 = new List<string>();
+            fly1.Add("W");
+            fly1.Add("B");
+            P1Skills.Add(Fly.Name, fly1);
 
-            List<string> scratch = new List<string>();
-            scratch.Add("DOWNARROW");
-            scratch.Add("DOWNARROW");
-            scratch.Add("Z");
-            SkillCommand.Add("Scratch", scratch);
+            List<string> fly2 = new List<string>();
+            fly2.Add("UPARROW");
+            fly2.Add("NUMPAD1");
+            P2Skills.Add(Fly.Name, fly2);
 
-            List<string> hasegi = new List<string>();
-            hasegi.Add("UPARROW");
-            hasegi.Add("RIGHTARROW");
-            hasegi.Add("Z");
-            SkillCommand.Add("Hasegi", hasegi);
+            List<string> scratch1 = new List<string>();
+            scratch1.Add("S");
+            scratch1.Add("S");
+            scratch1.Add("B");
+            P1Skills.Add(Scratch.Name, scratch1);
 
-            List<string> upperWing = new List<string>();
-            upperWing.Add("LEFTARROW");
-            upperWing.Add("RIGHTARROW");
-            upperWing.Add("Z");
-            SkillCommand.Add("UpperWing", upperWing);
+            List<string> scratch2 = new List<string>();
+            scratch2.Add("DOWNARROW");
+            scratch2.Add("DOWNARROW");
+            scratch2.Add("NUMPAD1");
+            P2Skills.Add(Scratch.Name, scratch2);
+
+            List<string> hasegi1 = new List<string>();
+            hasegi1.Add("W");
+            hasegi1.Add("D");
+            hasegi1.Add("B");
+            P1Skills.Add(Hasegi.Name, hasegi1);
+
+            List<string> hasegi2 = new List<string>();
+            hasegi2.Add("UPARROW");
+            hasegi2.Add("RIGHTARROW");
+            hasegi2.Add("NUMPAD1");
+            P2Skills.Add(Hasegi.Name, hasegi2);
+
+            List<string> upperWing1 = new List<string>();
+            upperWing1.Add("A");
+            upperWing1.Add("D");
+            upperWing1.Add("B");
+            P1Skills.Add(UpperWing.Name, upperWing1);
+
+            List<string> upperWing2 = new List<string>();
+            upperWing2.Add("LEFTARROW");
+            upperWing2.Add("RIGHTARROW");
+            upperWing2.Add("NUMPAD1");
+            P2Skills.Add(UpperWing.Name, upperWing2);
         }
     }
 }

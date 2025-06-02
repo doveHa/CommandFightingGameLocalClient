@@ -163,14 +163,14 @@ namespace Handler
 
                 AnimatorClipInfo[] clipInfo = Animator.GetCurrentAnimatorClipInfo(CurrentLayerIndex);
                 AnimationClip clip = clipInfo[0].clip;
-                Debug.Log(CurrentLayerIndex);
+//                Debug.Log(CurrentLayerIndex);
                 int totalFrames = Mathf.RoundToInt(clip.length * clip.frameRate);
                 int currentFrame = Mathf.FloorToInt(normalizedTime * totalFrames);
 
                 State = clip.name;
                 List<FrameRange> frameRanges =
                     dictionary.FrameRanges[State];
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < frameRanges.Count; i++)
                 {
                     if (currentFrame >= frameRanges[i].start && currentFrame <= frameRanges[i].end)
                     {
@@ -179,21 +179,26 @@ namespace Handler
                     }
                 }
 
-                if (gameObject.CompareTag("Player"))
+                HitBoxManager p1Manager = GameManager.Manager.P1.Player.GetComponentInParent<HitBoxManager>();
+                HitBoxManager p2Manager = GameManager.Manager.P2.Player.GetComponentInParent<HitBoxManager>();
+
+                if (gameObject.transform.parent.name.Equals("1P"))
                 {
-                    HitBoxManager.Manager.SetPlayerState(State, FrameIndex);
+                    p1Manager.SetCurrentState(State, FrameIndex);
+                    p2Manager.SetOpponentState(State, FrameIndex);
                 }
 
-                if (gameObject.CompareTag("Opponent"))
+                if (gameObject.transform.parent.name.Equals("2P"))
                 {
-                    HitBoxManager.Manager.SetOpponentState(State, FrameIndex);
+                    p1Manager.SetOpponentState(State, FrameIndex);
+                    p2Manager.SetCurrentState(State, FrameIndex);
                 }
             }
         }
 
         private void OnDrawGizmos()
         {
-            foreach (CharacterAllStatement statement in VarManager.Manager.Opponent.DataSet.RawData)
+            foreach (CharacterAllStatement statement in GetComponentInParent<Player>().DataSet.RawData)
             {
                 if (statement.Statement.Equals(State))
                 {

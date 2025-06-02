@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Characters;
+using DefaultNamespace;
 using Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,6 +14,7 @@ namespace Handler
         {
             public Dictionary<string, ComboTireNode> Children = new();
             public string SkillName;
+            public MethodGroup Group;
             public List<string> Commands;
             public bool IsEndOfCombo;
         }
@@ -32,14 +34,21 @@ namespace Handler
 
         private void Start()
         {
-            foreach (KeyValuePair<string, List<string>> keyValuePair in GameManager.Manager.SkillCommand)
+            foreach (KeyValuePair<string, List<string>> keyValuePair in GameManager.Manager.P1Skills)
             {
-                AddCombo(keyValuePair.Key, keyValuePair.Value);
+                AddCombo(keyValuePair.Key, GameManager.Manager.P1, keyValuePair.Value);
             }
-            InputActionManager.Manager.Inputs.Command.CommandInput.performed += OnInputPerformed;
+
+            foreach (KeyValuePair<string, List<string>> keyValuePair in GameManager.Manager.P2Skills)
+            {
+                AddCombo(keyValuePair.Key, GameManager.Manager.P2, keyValuePair.Value);
+            }
+
+            InputActionManager.Manager.Inputs._1PInput.CommandInput.performed += OnInputPerformed;
+            InputActionManager.Manager.Inputs._2PInput.CommandInput.performed += OnInputPerformed;
         }
 
-        public void AddCombo(string skillName, List<string> commands)
+        public void AddCombo(string skillName, MethodGroup group, List<string> commands)
         {
             List<string> keySequence = commands;
             ComboTireNode currentNode = _comboTireRoot;
@@ -57,21 +66,12 @@ namespace Handler
                 currentNode = nextNode;
             }
 
-            currentNode.Commands = commands;
             currentNode.SkillName = skillName;
+            currentNode.Group = group;
+            currentNode.Commands = commands;
+
             currentNode.IsEndOfCombo = true;
         }
-
-        public void ChangeCombo(string skillName, List<string> newCommands)
-        {
-            if (!RemoveCombo(_comboTireRoot, skillName))
-            {
-                Debug.LogWarning($"Combo with skill name '{skillName}' was not found to remove.");
-            }
-
-            AddCombo(skillName, newCommands);
-        }
-
         private bool RemoveCombo(ComboTireNode node, string skillName, int depth = 0)
         {
             // Leaf node case
@@ -106,10 +106,11 @@ namespace Handler
 
             return keysToRemove.Count > 0;
         }
-        
+
         public void OnInputPerformed(InputAction.CallbackContext ctx)
         {
             string context = ctx.control.name;
+            Debug.Log(context.ToUpper());
             ProcessInput(context.ToUpper());
         }
 
@@ -127,13 +128,17 @@ namespace Handler
 
                 if (timedNode.Node.Children.TryGetValue(inputKey, out ComboTireNode nextNode))
                 {
+                    Debug.Log("key");
                     if (nextNode.IsEndOfCombo)
                     {
-                        InputActionManager.Manager.Inputs.Atk.Atk.Disable();
-                        VarManager.Manager.PlayerSkills[nextNode.SkillName].Run();
+                        InputActionManager.Manager.Inputs._1PInput.BasicAtk.Disable();
+                        InputActionManager.Manager.Inputs._2PInput.BasicAtk.Disable();
+
+                        nextNode.Group.GetSkillAction(nextNode.SkillName).Invoke();
                         //nextNode.SkillInfo.Action.Invoke(nextNode.SkillInfo);
                         comboExecuted = true;
-                        InputActionManager.Manager.Inputs.Atk.Atk.Enable();
+                        InputActionManager.Manager.Inputs._1PInput.BasicAtk.Enable();
+                        InputActionManager.Manager.Inputs._2PInput.BasicAtk.Enable();
 
                         break;
                     }
@@ -172,7 +177,7 @@ namespace Handler
                 }
             }
         }
-        
+
 
         private void Update()
         {

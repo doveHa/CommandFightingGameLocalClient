@@ -6,29 +6,22 @@ namespace Characters.Skill
 {
     public class Punch : MonoBehaviour, ICharacterSkill
     {
+        public const string Name = "Punch";
+
         public bool HasHit { get; set; }
+        public int Damage { get; set; } = 10;
 
         void Start()
         {
-            InputActionManager.Manager.Inputs.Atk.Atk.started += (ctx => { AddPunch(); });
+            InputActionManager.Manager.Inputs._1PInput.BasicAtk.started += (ctx => { GameManager.Manager.P1.Punch(); });
+            InputActionManager.Manager.Inputs._2PInput.BasicAtk.started += (ctx => { GameManager.Manager.P2.Punch(); });
         }
 
-        private void AddPunch()
-        {
-            Debug.Log("Press Punch");
-            VarManager.Manager.PlayerSkills["Atk_Punch"].Run();
-        }
         public void Run()
         {
             HasHit = false;
             CharacterAnimatorHandler animator = GetComponentInParent<CharacterAnimatorHandler>();
             animator.StartPunchAnimation();
-        }
-
-        public void Hit()
-        {
-            HasHit = true;
-            VarManager.Manager.Opponent.Hit(10);
         }
     }
 }

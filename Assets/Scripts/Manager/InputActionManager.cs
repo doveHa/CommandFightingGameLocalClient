@@ -5,7 +5,6 @@ namespace Manager
 {
     public class InputActionManager : MonoBehaviour
     {
-        public ComboInputHandler comboInputHandler;
         public static InputActionManager Manager { get; private set; }
         public ActionsInput Inputs { get; private set; }
 
@@ -29,6 +28,5 @@ namespace Manager
         {
             Inputs.Disable();
         }
-        
     }
 }

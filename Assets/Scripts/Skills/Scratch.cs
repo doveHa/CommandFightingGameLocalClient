@@ -7,7 +7,10 @@ namespace Characters.Skill.Naktis
 {
     public class Scratch : MonoBehaviour, ICharacterSkill
     {
+        public const string Name = "Scratch";   
+
         public bool HasHit { get; set; }
+        public int Damage { get; set; } = 10;
 
         private NaktisAnimationHandler naktisAnimationHandler;
 
@@ -20,12 +23,6 @@ namespace Characters.Skill.Naktis
             HasHit = false;
             naktisAnimationHandler = transform.parent.GetComponent<NaktisAnimationHandler>();
             naktisAnimationHandler.StartScratchAnimation();
-        }
-
-        public void Hit()
-        {
-            HasHit = true;
-            VarManager.Manager.Opponent.Hit(10);
         }
     }
 }

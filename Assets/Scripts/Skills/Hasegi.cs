@@ -7,7 +7,11 @@ namespace Characters.Skill.Naktis
 {
     public class Hasegi : MonoBehaviour, ICharacterSkill
     {
+        public const string Name = "Hasegi";   
+
         public bool HasHit { get; set; }
+                public int Damage { get; set; } = 10;
+
 
         private float speed = 10f;
         private NaktisAnimationHandler naktisAnimationHandler;
@@ -23,13 +27,7 @@ namespace Characters.Skill.Naktis
             naktisAnimationHandler.StartHasegiAnimation();
             StartCoroutine(WaitHasegiMotion());
         }
-
-        public void Hit()
-        {
-            HasHit = true;
-            VarManager.Manager.Opponent.Hit(10);
-        }
-
+        
         private IEnumerator WaitHasegiMotion()
         {
             yield return new WaitUntil(() => naktisAnimationHandler.ShootHasegi);

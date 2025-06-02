@@ -7,8 +7,9 @@ namespace Characters.Skill.Naktis
 {
     public class Fly : MonoBehaviour, ICharacterSkill
     {
+        public const string Name = "Fly";   
         public bool HasHit { get; set; }
-
+        public int Damage { get; set; } = 10;
 
         private NaktisAnimationHandler naktisAnimationHandler;
         private Coroutine flyCoroutine;

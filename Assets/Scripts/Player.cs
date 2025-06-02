@@ -1,4 +1,7 @@
-﻿using DataTable.DataSet;
+﻿using System.Collections.Generic;
+using Characters.Skill;
+using Characters.Skill.Naktis;
+using DataTable.DataSet;
 using Handler;
 using Manager;
 using UnityEngine;
@@ -11,6 +14,7 @@ public class Player : MonoBehaviour
     public CharacterAnimatorHandler Animator { get; set; }
     private DataSet leftSide, rightSide;
     public DataSet DataSet { get; set; }
+    public Dictionary<string, ICharacterSkill> PlayerSkills;
 
     private bool isLeft;
     public bool isGuard;
@@ -24,6 +28,15 @@ public class Player : MonoBehaviour
         isLeft = true;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         Animator = GetComponentInChildren<CharacterAnimatorHandler>();
+
+        SetDataSet("Naktis");
+        PlayerSkills = new Dictionary<string, ICharacterSkill>();
+        PlayerSkills.Add("Atk_Punch", GetComponentInChildren<Punch>());
+        PlayerSkills.Add("Atk_Kick", GetComponentInChildren<Punch>());
+        PlayerSkills.Add("Hasegi", GetComponentInChildren<Hasegi>());
+        PlayerSkills.Add("Scratch", GetComponentInChildren<Scratch>());
+        PlayerSkills.Add("UpperWing", GetComponentInChildren<UpperWing>());
+        PlayerSkills.Add("Fly", GetComponentInChildren<Fly>());
     }
 
     public void Flip()
@@ -36,7 +49,7 @@ public class Player : MonoBehaviour
             DataSet.SetLeftSide();
         }
         else
-        { 
+        {
             DataSet.SetRightSide();
         }
     }

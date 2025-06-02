@@ -1395,9 +1395,10 @@ GameObject:
   m_Component:
   - component: {fileID: 529426232}
   - component: {fileID: 529426231}
-  - component: {fileID: 529426233}
+  - component: {fileID: 529426234}
+  - component: {fileID: 529426235}
   m_Layer: 0
-  m_Name: Player
+  m_Name: 1P
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1433,7 +1434,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &529426233
+--- !u!114 &529426234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1442,9 +1443,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 529426230}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e44bfa7a3ec408eb9eb881c8867b5e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 05276fae977a44a494af83361002a954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &529426235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529426230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d32846fa68497ca1b13daf2845871e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPlayer: {fileID: 529426231}
+  opponentPlayer: {fileID: 1285256358}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1935,6 +1950,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Fly
+  change: 0
+  isRecode: 0
+  commands: []
+  currentChangeCommand: {fileID: 0}
+  changeButton: {fileID: 0}
 --- !u!114 &987567926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2105,6 +2125,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Hasegi
+  change: 0
+  isRecode: 0
+  commands: []
+  currentChangeCommand: {fileID: 0}
+  changeButton: {fileID: 0}
 --- !u!114 &1193254224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2153,8 +2178,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1285256359}
   - component: {fileID: 1285256358}
+  - component: {fileID: 1285256360}
+  - component: {fileID: 1285256361}
   m_Layer: 0
-  m_Name: Opponent
+  m_Name: 2P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2190,6 +2217,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1285256360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285256357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05276fae977a44a494af83361002a954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1285256361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285256357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d32846fa68497ca1b13daf2845871e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPlayer: {fileID: 1285256358}
+  opponentPlayer: {fileID: 529426231}
 --- !u!1 &1288074570
 GameObject:
   m_ObjectHideFlags: 0
@@ -3108,6 +3161,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: UpperWing
+  change: 0
+  isRecode: 0
+  commands: []
+  currentChangeCommand: {fileID: 0}
+  changeButton: {fileID: 0}
 --- !u!114 &1442689354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3497,6 +3555,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Scratch
+  change: 0
+  isRecode: 0
+  commands: []
+  currentChangeCommand: {fileID: 0}
+  changeButton: {fileID: 0}
 --- !u!114 &1767886328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3821,8 +3884,8 @@ GameObject:
   - component: {fileID: 2094096920}
   - component: {fileID: 2094096919}
   - component: {fileID: 2094096918}
-  - component: {fileID: 2094096917}
   - component: {fileID: 2094096922}
+  - component: {fileID: 2094096923}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -3830,18 +3893,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2094096917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094096916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d32846fa68497ca1b13daf2845871e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2094096918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3854,7 +3905,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eaa75815d4a4feaaebede146a388695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboInputHandler: {fileID: 2094096922}
 --- !u!114 &2094096919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3867,6 +3917,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae580aec839a452fabe88b622429e510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Player>k__BackingField: {fileID: 0}
+  <Opponent>k__BackingField: {fileID: 0}
+  <PlayerGameObject>k__BackingField: {fileID: 0}
+  <OpponentGameObject>k__BackingField: {fileID: 0}
+  <PlayerCharacterName>k__BackingField: 
+  <OpponentCharacterName>k__BackingField: 
 --- !u!114 &2094096920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3879,6 +3935,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa6cee39d6e345749a5d95f532998e1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  P1: {fileID: 529426234}
+  P2: {fileID: 1285256360}
 --- !u!4 &2094096921
 Transform:
   m_ObjectHideFlags: 0
@@ -3904,6 +3962,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68a6160e02b8433aa6b40390808d96d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2094096923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094096916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e44bfa7a3ec408eb9eb881c8867b5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807

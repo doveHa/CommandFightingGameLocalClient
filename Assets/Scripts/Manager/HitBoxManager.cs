@@ -1,50 +1,41 @@
 ﻿using System.Collections.Generic;
 using DataTable.DataSet;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Manager
 {
     public class HitBoxManager : MonoBehaviour
     {
-        public static HitBoxManager Manager;
+        [SerializeField] private Player currentPlayer;
+        [SerializeField] private Player opponentPlayer;
+        private string currentState;
+        private string opponentCurrentState;
 
-        void Awake()
-        {
-            DontDestroyOnLoad(this);
-            if (Manager == null)
-            {
-                Manager = this;
-            }
-        }
-
-        public string PlayerCurrentState { get; set; }
-        public string OpponentCurrentState { get; set; }
-
-        private FrameNumberDictionary playerCurrentFrameData;
+        private FrameNumberDictionary currentFrameData;
         private FrameNumberDictionary opponentCurrentFrameData;
 
-        private int playerFrameIndex, opponentFrameIndex;
+        private int currentFrameIndex, opponentFrameIndex;
 
-        public void SetPlayerState(string state, int frameIndex)
+        public void SetCurrentState(string state, int frameIndex)
         {
-            PlayerCurrentState = state;
-            playerCurrentFrameData = VarManager.Manager.Player.DataSet.Statements[state];
-            playerFrameIndex = frameIndex;
+            currentState = state;
+            currentFrameData = currentPlayer.DataSet.Statements[state];
+            currentFrameIndex = frameIndex;
         }
 
         public void SetOpponentState(string state, int frameIndex)
         {
-            
-            OpponentCurrentState = state;
-            opponentCurrentFrameData = VarManager.Manager.Opponent.DataSet.Statements[state];
+            opponentCurrentState = state;
+            opponentCurrentFrameData = opponentPlayer.DataSet.Statements[state];
             opponentFrameIndex = frameIndex;
         }
 
         void FixedUpdate()
         {
-            if (playerCurrentFrameData != null && opponentCurrentFrameData != null)
+            if (currentFrameData != null && opponentCurrentFrameData != null)
             {
-                var playerFrame = playerCurrentFrameData.Dictionary[playerFrameIndex + 1];
+                var playerFrame = currentFrameData.Dictionary[currentFrameIndex + 1];
                 var opponentFrame = opponentCurrentFrameData.Dictionary[opponentFrameIndex + 1];
 
                 foreach (var playerBox in playerFrame.HurtBoxes)
@@ -52,7 +43,7 @@ namespace Manager
                     if (playerBox.PartName.Equals("HitBox"))
                     {
                         Vector2 playerCenter =
-                            (Vector2)VarManager.Manager.PlayerGameObject.transform.GetChild(0).GetChild(0).position +
+                            (Vector2)currentPlayer.transform.GetChild(0).GetChild(0).position +
                             DataSet.FloatArrayToVector2(playerBox.OffSet);
                         Vector2 playerSize = DataSet.FloatArrayToVector2(playerBox.Size);
                         Rect playerHitRect = new Rect(playerCenter - playerSize / 2f, playerSize);
@@ -60,7 +51,7 @@ namespace Manager
                         foreach (var opponentBox in opponentFrame.HurtBoxes)
                         {
                             Vector2 opponentCenter =
-                                (Vector2)VarManager.Manager.OpponentGameObject.transform.GetChild(0).GetChild(0)
+                                (Vector2)opponentPlayer.transform.GetChild(0).GetChild(0)
                                     .position +
                                 DataSet.FloatArrayToVector2(opponentBox.OffSet);
                             Vector2 opponentSize = DataSet.FloatArrayToVector2(opponentBox.Size);
@@ -69,7 +60,8 @@ namespace Manager
                             if (!skill.HasHit && playerHitRect.Overlaps(opponentHurtRect))
                             {
                                 Debug.Log("Hit Detected!");
-                                GetHitSkill().Hit();
+                                skill.HasHit = true;
+                                opponentPlayer.Hit(skill.Damage);
                                 return;
                             }
                         }
@@ -80,7 +72,7 @@ namespace Manager
 
         private ICharacterSkill GetHitSkill()
         {
-            return VarManager.Manager.PlayerSkills[PlayerCurrentState];
+            return currentPlayer.PlayerSkills[currentState];
         }
     }
 }
