@@ -1,5 +1,4 @@
 using System.Collections;
-using Characters;
 using Characters.AnimationHandler;
 using Unity.VisualScripting;
 using UnityEngine;

@@ -72,10 +72,10 @@ namespace Manager
                 Resources.Load<GameObject>("Prefab/Naktis"),
                 VarManager.Manager.OpponentGameObject.transform).tag = "Opponent";
             Destroy(VarManager.Manager.OpponentGameObject.GetComponentInChildren<Punch>().gameObject);
-            VarManager.Manager.OpponentGameObject.GetComponentInChildren<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            VarManager.Manager.OpponentGameObject.GetComponentInChildren<Rigidbody2D>().constraints =
+                RigidbodyConstraints2D.FreezeAll;
 
             VarManager.Manager.PlayerOpponentInitialize();
-            ;
         }
 
         private void CommandInitialize()

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿/*
+using System.Collections.Generic;
 using Characters;
 using Characters.Skill;
 using Characters.Skill.Naktis;
@@ -87,4 +88,4 @@ namespace Manager
 //private Player player;
 //private Animator playerAnimator;
 //private Player opponent;
-//private Animator opponentAnimator;
+//private Animator opponentAnimator;*/

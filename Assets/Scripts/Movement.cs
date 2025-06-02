@@ -46,13 +46,13 @@ public class Movement : MonoBehaviour
         JumpCharacter(VarManager.Manager.PlayerGameObject.transform.GetChild(0).gameObject);
     }
 
-    public void MoveCharacter(GameObject gameObject, float moveDirection)
+    public static void MoveCharacter(GameObject gameObject, float moveDirection)
     {
         Rigidbody2D body = gameObject.transform.GetComponent<Rigidbody2D>();
         body.linearVelocityX = moveDirection * ConstController.Manager.MoveSpeed;
     }
 
-    public void JumpCharacter(GameObject gameObject)
+    public static void JumpCharacter(GameObject gameObject)
     {
         Player player = gameObject.transform.GetComponentInParent<Player>();
 
