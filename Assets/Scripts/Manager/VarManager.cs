@@ -63,6 +63,7 @@ namespace Manager
         private void SetSkill(string characterName, Player player, Dictionary<string, ICharacterSkill> skills)
         {
             skills.Add("Atk_Punch", player.GetComponentInChildren<Punch>());
+            skills.Add("Atk_Kick", player.GetComponentInChildren<Punch>());
             switch (characterName)
             {
                 case "Naktis":

@@ -27,13 +27,12 @@ namespace Characters.Skill.Naktis
         public void Hit()
         {
             HasHit = true;
-            naktisAnimationHandler.StartHitAnimation();
             VarManager.Manager.Opponent.Hit(10);
         }
 
         private IEnumerator WaitHasegiMotion()
         {
-            yield return new WaitUntil(() => naktisAnimationHandler.HasegiMotion);
+            yield return new WaitUntil(() => naktisAnimationHandler.ShootHasegi);
 
             CreateWind();
         }
@@ -48,7 +47,7 @@ namespace Characters.Skill.Naktis
 
             rigidbody.linearVelocity = direction * speed;
 
-            naktisAnimationHandler.HasegiMotion = false;
+            naktisAnimationHandler.ShootHasegi = false;
         }
     }
 }

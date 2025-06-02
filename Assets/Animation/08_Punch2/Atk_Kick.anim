@@ -22,17 +22,17 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 5387371908319190886, guid: 341157f8fc73dd94f8b6a388a56df256, type: 3}
-    - time: 0.06666667
+    - time: 0.083333336
       value: {fileID: -5223800888992367219, guid: 341157f8fc73dd94f8b6a388a56df256, type: 3}
-    - time: 0.23333333
+    - time: 0.18333334
       value: {fileID: 6256667127718314672, guid: e86f58f2b7afb104384816aba87d39ee, type: 3}
-    - time: 0.35
+    - time: 0.26666668
       value: {fileID: 4533829255920842527, guid: e86f58f2b7afb104384816aba87d39ee, type: 3}
-    - time: 0.46666667
+    - time: 0.38333333
       value: {fileID: -2832835604093129709, guid: e86f58f2b7afb104384816aba87d39ee, type: 3}
-    - time: 0.56666666
+    - time: 0.51666665
       value: {fileID: -7042025673455037828, guid: e86f58f2b7afb104384816aba87d39ee, type: 3}
-    - time: 0.73333335
+    - time: 0.65
       value: {fileID: 5387371908319190886, guid: 341157f8fc73dd94f8b6a388a56df256, type: 3}
     attribute: m_Sprite
     path: 
@@ -68,7 +68,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.75
+    m_StopTime: 0.6666666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -88,8 +88,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.53333336
-    functionName: FlagPunchFalse
+  - time: 0.65
+    functionName: EndPunchAnimation
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
