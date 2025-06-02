@@ -7,11 +7,20 @@ using UnityEngine.InputSystem;
 
 public class MovementManager : MonoBehaviour
 {
+    public static MovementManager Manager { get; private set; }
+
+    public bool MovementLock { get; set; }
     private Vector2 p1MoveDirection;
     private Vector2 p2MoveDirection;
 
     void Start()
     {
+        if (Manager == null)
+        {
+            Manager = this;
+        }
+
+        MovementLock = false;
         InputActionManager.Manager.Inputs._1PInput.Move.started += PerformP1KeyInput;
         InputActionManager.Manager.Inputs._1PInput.Move.canceled += CancelP1KeyInput;
         InputActionManager.Manager.Inputs._1PInput.Jump.performed += JumpP1KeyInput;
@@ -20,7 +29,7 @@ public class MovementManager : MonoBehaviour
         InputActionManager.Manager.Inputs._2PInput.Move.canceled += CancelP2KeyInput;
         InputActionManager.Manager.Inputs._2PInput.Jump.performed += JumpP2KeyInput;
     }
-
+    
     void Update()
     {
         GameManager.Manager.P1.Move(p1MoveDirection.x);
@@ -32,14 +41,14 @@ public class MovementManager : MonoBehaviour
         GameManager.Manager.P1.GetComponentInChildren<CharacterAnimatorHandler>().StartWalkAnimation();
 
         p1MoveDirection = ctx.ReadValue<Vector2>();
-        if ((p1MoveDirection.x > 0 && !GameManager.Manager.IsPlayerLeft)
-            || (p1MoveDirection.x < 0 && GameManager.Manager.IsPlayerLeft))
+        if ((p1MoveDirection.x > 0 && !GameManager.Manager.P1.playerComponent.isLeft)
+            || (p1MoveDirection.x < 0 && GameManager.Manager.P1.playerComponent.isLeft))
         {
             GameManager.Manager.P1.playerComponent.SetGuard(true);
         }
         else
         {
-            GameManager.Manager.P1.playerComponent.SetGuard(true);
+            GameManager.Manager.P1.playerComponent.SetGuard(false);
         }
     }
 
@@ -48,14 +57,14 @@ public class MovementManager : MonoBehaviour
         GameManager.Manager.P2.GetComponentInChildren<CharacterAnimatorHandler>().StartWalkAnimation();
 
         p2MoveDirection = ctx.ReadValue<Vector2>();
-        if ((p2MoveDirection.x > 0 && !GameManager.Manager.IsPlayerLeft)
-            || (p2MoveDirection.x < 0 && GameManager.Manager.IsPlayerLeft))
+        if ((p2MoveDirection.x > 0 && !GameManager.Manager.P2.playerComponent.isLeft)
+            || (p2MoveDirection.x < 0 && GameManager.Manager.P2.playerComponent.isLeft))
         {
             GameManager.Manager.P2.playerComponent.SetGuard(true);
         }
         else
         {
-            GameManager.Manager.P2.playerComponent.SetGuard(true);
+            GameManager.Manager.P2.playerComponent.SetGuard(false);
         }
     }
 

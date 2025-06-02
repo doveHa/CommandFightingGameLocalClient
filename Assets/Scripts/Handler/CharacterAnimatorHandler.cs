@@ -4,6 +4,7 @@ using System.Data;
 using DataTable.FrameRanges;
 using DataTable.DataSet;
 using Manager;
+using UnityEditor.Searcher;
 using DataSet = DataTable.DataSet.DataSet;
 
 namespace Handler
@@ -52,16 +53,24 @@ namespace Handler
 
         public void StartPunchAnimation()
         {
-            if (punchFlag)
+            if (motionFlag)
             {
-                additionalPunch = true;
             }
             else
             {
-                ChangeLayer(punchLayerIndex);
-                Animator.SetBool("PunchExit", false);
-                Animator.Play("Atk_Punch", CurrentLayerIndex, 0);
-                punchFlag = true;
+                if (punchFlag && !additionalPunch)
+                {
+                    additionalPunch = true;
+                }
+
+                if (!punchFlag)
+                {
+                    LockMovement();
+                    ChangeLayer(punchLayerIndex);
+                    Animator.SetBool("PunchExit", false);
+                    Animator.Play("Atk_Punch", CurrentLayerIndex, 0);
+                    punchFlag = true;
+                }
             }
         }
 
@@ -70,20 +79,33 @@ namespace Handler
             if (additionalPunch)
             {
                 Animator.SetTrigger("AdditionalPunch");
-                additionalPunch = false;
+                LockMovement();
+            }
+            else
+            {
+                punchFlag = false;
             }
         }
 
         public void EndPunchAnimation()
         {
-            Debug.Log("EndPunchAnimation Method");
-            Debug.Log(additionalPunch);
-            if (!additionalPunch)
+            if (!additionalPunch && !motionFlag)
             {
-                Debug.Log("EndPunch");
                 PunchFlagInitialize();
                 ChangeLayer(baseLayerIndex);
                 Animator.SetBool("PunchExit", true);
+                UnLockMovement();
+            }
+        }
+
+        public void EndKickAnimation()
+        {
+            if (!motionFlag)
+            {
+                PunchFlagInitialize();
+                ChangeLayer(baseLayerIndex);
+                Animator.SetBool("PunchExit", true);
+                UnLockMovement();
             }
         }
 
@@ -95,44 +117,25 @@ namespace Handler
 
         public void StartHitAnimation()
         {
+            LockMovement();
             Animator.SetBool("Hit", true);
-        }
-
-        public void FlagPunchFalse()
-        {
-            animationFlag["Punch"] = false;
-            animationFlag["Punch2"] = false;
-            motionFlag = false;
         }
 
         public void StartGuardAnimation()
         {
-            Animator.SetLayerWeight(baseLayerIndex, 0);
-            Animator.SetLayerWeight(baseLayerIndex, 1);
+            LockMovement();
+            Animator.SetBool("IsGuard", true);
         }
 
         public void EndGuardAnimation()
         {
-            Animator.SetLayerWeight(baseLayerIndex, 0);
-            Animator.SetLayerWeight(baseLayerIndex, 1);
-        }
-
-        public void StartAirborneAnimation()
-        {
-            Animator.SetBool("Airborne", true);
-        }
-
-        public void ReAirborneHitAnimation()
-        {
-            Animator.Play("Airborne");
-        }
-
-        public void EndAirborneHitAnimation()
-        {
+            Animator.SetBool("IsGuard", false);
+            UnLockMovement();
         }
 
         public void EndHitAnimation()
         {
+            UnLockMovement();
             Animator.SetBool("Hit", false);
         }
 
@@ -148,11 +151,10 @@ namespace Handler
 
         protected void ChangeLayer(int targetLayerIndex)
         {
-            Animator.SetLayerWeight(CurrentLayerIndex, 0.01f);
+            Animator.SetLayerWeight(CurrentLayerIndex, 0);
             Animator.SetLayerWeight(targetLayerIndex, 1);
             CurrentLayerIndex = targetLayerIndex;
         }
-
 
         private void CalFrameNumber()
         {
@@ -163,7 +165,6 @@ namespace Handler
 
                 AnimatorClipInfo[] clipInfo = Animator.GetCurrentAnimatorClipInfo(CurrentLayerIndex);
                 AnimationClip clip = clipInfo[0].clip;
-//                Debug.Log(CurrentLayerIndex);
                 int totalFrames = Mathf.RoundToInt(clip.length * clip.frameRate);
                 int currentFrame = Mathf.FloorToInt(normalizedTime * totalFrames);
 
@@ -226,6 +227,17 @@ namespace Handler
                     }
                 }
             }
+        }
+
+        protected void LockMovement()
+        {
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+        }
+
+        protected void UnLockMovement()
+        {
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 }

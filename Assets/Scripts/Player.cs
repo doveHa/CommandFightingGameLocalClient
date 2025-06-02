@@ -16,9 +16,8 @@ public class Player : MonoBehaviour
     public DataSet DataSet { get; set; }
     public Dictionary<string, ICharacterSkill> PlayerSkills;
 
-    private bool isLeft;
+    public bool isLeft { get; private set; }
     public bool isGuard;
-    public bool IsAirborne;
     public bool IsJumping { get; set; }
 
     private int health = 100;
@@ -59,28 +58,6 @@ public class Player : MonoBehaviour
         this.isGuard = isGuard;
     }
 
-    public void Airborne(int atk)
-    {
-        Rigidbody2D rb = GetComponentInChildren<Rigidbody2D>();
-        if (isGuard)
-        {
-            Animator.StartGuardAnimation();
-        }
-        else if (IsAirborne)
-        {
-            rb.AddForce(Vector2.up * ConstController.Manager.ReAirbonneForceY, ForceMode2D.Impulse);
-            Animator.ReAirborneHitAnimation();
-        }
-        else
-        {
-            IsAirborne = true;
-            Animator.StartAirborneAnimation();
-
-            rb.linearVelocity = Vector2.zero;
-            rb.AddForce(Vector2.up * ConstController.Manager.AirborneForceY, ForceMode2D.Impulse);
-            health -= atk;
-        }
-    }
 
     public void Hit(int atk)
     {
@@ -88,13 +65,6 @@ public class Player : MonoBehaviour
         {
             Debug.Log("guard");
             Animator.StartGuardAnimation();
-        }
-        else if (IsAirborne)
-        {
-            Debug.Log("Re");
-            GetComponentInChildren<Rigidbody2D>()
-                .AddForce(Vector2.up * ConstController.Manager.ReAirbonneForceY, ForceMode2D.Impulse);
-            Animator.ReAirborneHitAnimation();
         }
         else
         {

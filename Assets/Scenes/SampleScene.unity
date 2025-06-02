@@ -572,7 +572,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 09be9bb965c9e2541a46e7fdfd8a084a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -734,7 +734,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 09be9bb965c9e2541a46e7fdfd8a084a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1418,7 +1418,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Position: {x: 0, y: 0}
   isGuard: 0
-  IsAirborne: 0
 --- !u!4 &529426232
 Transform:
   m_ObjectHideFlags: 0
@@ -2201,7 +2200,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Position: {x: 0, y: 0}
   isGuard: 0
-  IsAirborne: 0
 --- !u!4 &1285256359
 Transform:
   m_ObjectHideFlags: 0
@@ -2211,7 +2209,7 @@ Transform:
   m_GameObject: {fileID: 1285256357}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.96, y: -3.76, z: 0}
+  m_LocalPosition: {x: 3.04, y: -3.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2893,7 +2891,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 09be9bb965c9e2541a46e7fdfd8a084a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3309,7 +3307,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 09be9bb965c9e2541a46e7fdfd8a084a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

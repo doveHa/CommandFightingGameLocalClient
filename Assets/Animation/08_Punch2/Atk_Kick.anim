@@ -31,7 +31,7 @@ AnimationClip:
     - time: 0.38333333
       value: {fileID: -2832835604093129709, guid: e86f58f2b7afb104384816aba87d39ee, type: 3}
     - time: 0.51666665
-      value: {fileID: -7042025673455037828, guid: e86f58f2b7afb104384816aba87d39ee, type: 3}
+      value: {fileID: 5387371908319190886, guid: 341157f8fc73dd94f8b6a388a56df256, type: 3}
     - time: 0.65
       value: {fileID: 5387371908319190886, guid: 341157f8fc73dd94f8b6a388a56df256, type: 3}
     attribute: m_Sprite
@@ -61,7 +61,7 @@ AnimationClip:
     - {fileID: 6256667127718314672, guid: e86f58f2b7afb104384816aba87d39ee, type: 3}
     - {fileID: 4533829255920842527, guid: e86f58f2b7afb104384816aba87d39ee, type: 3}
     - {fileID: -2832835604093129709, guid: e86f58f2b7afb104384816aba87d39ee, type: 3}
-    - {fileID: -7042025673455037828, guid: e86f58f2b7afb104384816aba87d39ee, type: 3}
+    - {fileID: 5387371908319190886, guid: 341157f8fc73dd94f8b6a388a56df256, type: 3}
     - {fileID: 5387371908319190886, guid: 341157f8fc73dd94f8b6a388a56df256, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
@@ -89,7 +89,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.65
-    functionName: EndPunchAnimation
+    functionName: EndKickAnimation
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
