@@ -9,14 +9,13 @@ public class ConstController : MonoBehaviour
 
     [Tooltip("올라가는 속도")] public float JumpForce = 5f;
 
-    [Tooltip("떨어지는 속도")] public float FallGravitySacle = 1f;
+    [Tooltip("날아가는 속도")] public float FlyForce = 10f;
     
-    [Tooltip("기본 중력")] public float GravityScale = 1f;
-
     [Tooltip("올라가는 시간")] public float WaitTime = 1;
 
     [Tooltip("이동 속도")] public float MoveSpeed = 1f;
 
+    public float GravityScale { get; set; } = 1f;
 
     void Awake()
     {
