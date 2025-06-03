@@ -49,7 +49,7 @@ namespace Characters.Skill.Naktis
 
         private IEnumerator NaktisFly()
         {
-            //ConstController.Manager.GravityScale = GetComponentInChildren<Rigidbody2D>().gravityScale;
+            ConstController.Manager.GravityScale = GetComponentInChildren<Rigidbody2D>().gravityScale;
             Debug.Log("Fly Coroutin");
             naktisAnimationHandler.StartFlyAnimation();
             Rigidbody2D body = GetComponentInParent<Rigidbody2D>();
