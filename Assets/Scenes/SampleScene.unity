@@ -821,12 +821,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DurationTime: 4
-  JumpForce: 15
+  JumpForce: 20
+  FlyForce: 10
+  WaitTime: 0.5
   MoveSpeed: 5
-  GravityScale: 10
-  WaitTime: 1
-  AirborneForceY: 2
-  ReAirbonneForceY: 0.25
 --- !u!4 &221359472
 Transform:
   m_ObjectHideFlags: 0
