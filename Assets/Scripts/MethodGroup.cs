@@ -11,7 +11,7 @@ namespace DefaultNamespace
     {
         public GameObject Player { get; private set; }
         public Player playerComponent { get; private set; }
-        
+
         public void Initialize()
         {
             Player = gameObject.transform.GetChild(0).gameObject;
@@ -24,12 +24,13 @@ namespace DefaultNamespace
             Rigidbody2D body = Player.transform.GetComponent<Rigidbody2D>();
             body.linearVelocityX = moveDirection * ConstController.Manager.MoveSpeed;
         }
-        
+
         public void Jump()
         {
             if (!playerComponent.IsJumping)
             {
                 playerComponent.IsJumping = true;
+                playerComponent.Animator.StartJumpAnimation();
                 Rigidbody2D body = gameObject.transform.GetComponentInChildren<Rigidbody2D>();
                 body.AddForce(Vector2.up * ConstController.Manager.JumpForce, ForceMode2D.Impulse);
             }
@@ -37,7 +38,15 @@ namespace DefaultNamespace
 
         public void Punch()
         {
-            playerComponent.GetComponentInChildren<Punch>().Run();
+            if (playerComponent.IsJumping)
+            {
+                Debug.Log("JumpPunch");
+                playerComponent.Animator.StartJumpPunchAnimation();
+            }
+            else
+            {
+                playerComponent.GetComponentInChildren<Punch>().Run();
+            }
         }
 
         public void UseHasegi()

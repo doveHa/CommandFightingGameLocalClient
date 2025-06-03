@@ -23,6 +23,9 @@ namespace Handler
 
         protected int CurrentLayerIndex;
         protected FrameRangesDictionary dictionary;
+
+        protected abstract void FlagInitialize();
+
         public string State { get; set; }
         public int FrameIndex { get; set; }
 
@@ -74,6 +77,11 @@ namespace Handler
             }
         }
 
+        public void StartJumpPunchAnimation()
+        {
+            Animator.Play("Jump_Atk", CurrentLayerIndex, 0);
+        }
+
         public void AdditionalPunchAnimation()
         {
             if (additionalPunch)
@@ -118,7 +126,10 @@ namespace Handler
         public void StartHitAnimation()
         {
             LockMovement();
+            ChangeLayer(baseLayerIndex);
             Animator.SetBool("Hit", true);
+            motionFlag = true;
+            FlagInitialize();
         }
 
         public void StartGuardAnimation()
@@ -136,6 +147,7 @@ namespace Handler
         public void EndHitAnimation()
         {
             UnLockMovement();
+            motionFlag = false;
             Animator.SetBool("Hit", false);
         }
 
@@ -147,6 +159,16 @@ namespace Handler
         public void EndWalkAnimation()
         {
             Animator.SetBool("IsMove", false);
+        }
+
+        public void StartJumpAnimation()
+        {
+            Animator.SetTrigger("IsJump");
+        }
+
+        public void EndJumpAnimation()
+        {
+            Animator.Play("JumpDown", baseLayerIndex, 0);
         }
 
         protected void ChangeLayer(int targetLayerIndex)
@@ -231,7 +253,7 @@ namespace Handler
 
         protected void LockMovement()
         {
-            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
         }
 
         protected void UnLockMovement()

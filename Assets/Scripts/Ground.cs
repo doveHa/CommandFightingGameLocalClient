@@ -6,8 +6,13 @@ public class Ground : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Opponent"))
         {
-            collision.gameObject.GetComponentInParent<Player>().IsJumping = false;
-            //collision.gameObject.GetComponentInParent<Player>().IsAirborne = false;
+            Player player = collision.gameObject.GetComponentInParent<Player>();
+            if (player.IsJumping)
+            {
+                player.Animator.EndJumpAnimation();
+            }
+
+            player.IsJumping = false;
         }
     }
 }

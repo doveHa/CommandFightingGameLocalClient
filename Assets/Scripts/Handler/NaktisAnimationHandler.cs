@@ -122,7 +122,7 @@ namespace Characters.AnimationHandler
             ShootHasegi = true;
         }
 
-        private void FlagInitialize()
+        protected override void FlagInitialize()
         {
             PunchFlagInitialize();
             motionFlag = false;

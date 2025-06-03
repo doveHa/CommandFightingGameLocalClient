@@ -1948,12 +1948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114e6b0e5522287428d015c94d29d26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Fly
-  change: 0
-  isRecode: 0
-  commands: []
-  currentChangeCommand: {fileID: 0}
-  changeButton: {fileID: 0}
 --- !u!114 &987567926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2123,12 +2117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114e6b0e5522287428d015c94d29d26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Hasegi
-  change: 0
-  isRecode: 0
-  commands: []
-  currentChangeCommand: {fileID: 0}
-  changeButton: {fileID: 0}
 --- !u!114 &1193254224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3158,12 +3146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114e6b0e5522287428d015c94d29d26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: UpperWing
-  change: 0
-  isRecode: 0
-  commands: []
-  currentChangeCommand: {fileID: 0}
-  changeButton: {fileID: 0}
 --- !u!114 &1442689354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3552,12 +3534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114e6b0e5522287428d015c94d29d26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Scratch
-  change: 0
-  isRecode: 0
-  commands: []
-  currentChangeCommand: {fileID: 0}
-  changeButton: {fileID: 0}
 --- !u!114 &1767886328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3915,12 +3891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae580aec839a452fabe88b622429e510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Player>k__BackingField: {fileID: 0}
-  <Opponent>k__BackingField: {fileID: 0}
-  <PlayerGameObject>k__BackingField: {fileID: 0}
-  <OpponentGameObject>k__BackingField: {fileID: 0}
-  <PlayerCharacterName>k__BackingField: 
-  <OpponentCharacterName>k__BackingField: 
 --- !u!114 &2094096920
 MonoBehaviour:
   m_ObjectHideFlags: 0
