@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public bool isLeft { get; private set; }
     public bool isGuard;
     public bool IsJumping { get; set; }
-
+    
     private int health = 100;
 
     public void Initialize()
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
         PlayerSkills.Add("Hasegi", GetComponentInChildren<Hasegi>());
         PlayerSkills.Add("Scratch", GetComponentInChildren<Scratch>());
         PlayerSkills.Add("UpperWing", GetComponentInChildren<UpperWing>());
-        PlayerSkills.Add("Fly", GetComponentInChildren<Fly>());
+        PlayerSkills.Add("Fly_Drop", GetComponentInChildren<Fly>());
     }
 
     public void Flip()

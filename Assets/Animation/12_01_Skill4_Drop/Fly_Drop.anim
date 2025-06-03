@@ -26,7 +26,7 @@ AnimationClip:
       value: {fileID: -7268934432260887506, guid: c8b31b00f85f86547913a4caf21998bc, type: 3}
     - time: 0.33333334
       value: {fileID: -7559466278287379045, guid: c8b31b00f85f86547913a4caf21998bc, type: 3}
-    - time: 1.2666667
+    - time: 0.85
       value: {fileID: 2946357952548811738, guid: c8b31b00f85f86547913a4caf21998bc, type: 3}
     attribute: m_Sprite
     path: 
@@ -59,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.2833333
+    m_StopTime: 0.8666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -79,7 +79,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1.2666667
+  - time: 0.85
     functionName: EndFlySettingFlag
     data: 
     objectReferenceParameter: {fileID: 0}

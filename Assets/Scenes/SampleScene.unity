@@ -820,14 +820,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd6b0ca9a3246ee8c3d779df62214a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NaktisFlyYPosition: 0.25
   DurationTime: 4
-  JumpForce: 5
+  JumpForce: 10
+  GravityScale: 5
+  WaitTime: 0.5
   MoveSpeed: 5
-  GravityScale: 1
-  WaitTime: 1
-  AirborneForceY: 2
-  ReAirbonneForceY: 0.25
 --- !u!4 &221359472
 Transform:
   m_ObjectHideFlags: 0

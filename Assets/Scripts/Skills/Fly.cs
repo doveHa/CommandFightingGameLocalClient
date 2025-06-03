@@ -7,10 +7,11 @@ namespace Characters.Skill.Naktis
 {
     public class Fly : MonoBehaviour, ICharacterSkill
     {
-        public const string Name = "Fly";   
+        public const string Name = "Fly";
         public bool HasHit { get; set; }
         public int Damage { get; set; } = 10;
 
+        private bool isJumping;
         private NaktisAnimationHandler naktisAnimationHandler;
         private Coroutine flyCoroutine;
 
@@ -28,13 +29,14 @@ namespace Characters.Skill.Naktis
                 Debug.Log("Stop fly");
                 naktisAnimationHandler.EndFlyAnimation();
                 GetComponentInParent<Rigidbody2D>().gravityScale = ConstController.Manager.GravityScale;
-                StopCoroutine(flyCoroutine);
 
+                StopCoroutine(flyCoroutine);
                 flyCoroutine = null;
             }
             else
             {
                 flyCoroutine = StartCoroutine(NaktisFly());
+                isJumping = true;
                 GetComponentInParent<Player>().IsJumping = true;
             }
 
