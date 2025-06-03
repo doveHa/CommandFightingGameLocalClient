@@ -11,9 +11,9 @@ namespace DataTable.FrameRanges
             FrameRanges = new Dictionary<string, List<FrameRange>>();
             AddRange("Idle", new int[]{30,60,90,120, 121});
             AddRange("Walk", new int[]{10,20,30,40, 41});
-            AddRange("Jumping_Attack", new int[]{0,0,0,0});
-            AddRange("Jumping_Down", new int[]{0,0,0,0});
-            AddRange("Jumping_Up", new int[]{0,0,0,0});
+            AddRange("Jumping_Attack", new int[]{7,13,19,20});
+            AddRange("Jumping_Down", new int[]{1,2});
+            AddRange("Jumping_Up", new int[]{1,2,3});
             AddRange("Guard", new int[]{0,0,0,0});
             AddRange("Hit", new int[]{0,0,0,0});
             AddRange("Airborne", new int[]{0,0,0,0});

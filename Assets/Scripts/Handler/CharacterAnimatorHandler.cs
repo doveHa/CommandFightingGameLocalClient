@@ -79,7 +79,11 @@ namespace Handler
 
         public void StartJumpPunchAnimation()
         {
-            Animator.Play("Jump_Atk", CurrentLayerIndex, 0);
+            if (!motionFlag)
+            {
+                Animator.Play("Jumping_Attack", CurrentLayerIndex, 0);
+                motionFlag = true;
+            }
         }
 
         public void AdditionalPunchAnimation()
@@ -104,6 +108,13 @@ namespace Handler
                 Animator.SetBool("PunchExit", true);
                 UnLockMovement();
             }
+        }
+
+
+        public void EndJumpPunchAnimation()
+        {
+            Debug.Log("EndJumpPunchAnimation");
+            motionFlag = false;
         }
 
         public void EndKickAnimation()
@@ -168,7 +179,8 @@ namespace Handler
 
         public void EndJumpAnimation()
         {
-            Animator.Play("JumpDown", baseLayerIndex, 0);
+            Animator.Play("Jumping_Down", baseLayerIndex, 0);
+            motionFlag = false;
         }
 
         protected void ChangeLayer(int targetLayerIndex)

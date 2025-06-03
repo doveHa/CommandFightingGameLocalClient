@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: 2b5bb6807ab09c1468d3b623b0fc1a0e
+guid: fac5be2c8ddde54448d46b5a55f0355b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1953088729544073932
-    second: 03_Jump_Atk_0
+      213: -2259051823166338673
+    second: 03_Jump_Down_0
   - first:
-      213: 2039925879060622913
-    second: 03_Jump_Atk_1
+      213: 1521559801887412556
+    second: 03_Jump_Down_1
   - first:
-      213: 7300845714605121199
-    second: 03_Jump_Atk_2
-  - first:
-      213: 616392738692048069
-    second: 03_Jump_Atk_3
+      213: 5099377750497824065
+    second: 03_Jump_Down_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 03_Jump_Atk_0
+      name: 03_Jump_Down_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 639
-        width: 400
-        height: 254
+        x: 97
+        y: 537
+        width: 198
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +121,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43dd4bcf52c35e4e0800000000000000
-      internalID: -1953088729544073932
+      spriteID: f89c8f6f55c36a0e0800000000000000
+      internalID: -2259051823166338673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_Jump_Atk_1
+      name: 03_Jump_Down_1
       rect:
         serializedVersion: 2
-        x: 615
-        y: 645
-        width: 396
-        height: 270
+        x: 469
+        y: 503
+        width: 222
+        height: 236
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 14ee88d67c54f4c10800000000000000
-      internalID: 2039925879060622913
+      spriteID: c415308049aad1510800000000000000
+      internalID: 1521559801887412556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_Jump_Atk_2
+      name: 03_Jump_Down_2
       rect:
         serializedVersion: 2
-        x: 111
-        y: 127
-        width: 196
-        height: 260
+        x: 103
+        y: 63
+        width: 192
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,30 +165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fae98f2fe70d15560800000000000000
-      internalID: 7300845714605121199
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 03_Jump_Atk_3
-      rect:
-        serializedVersion: 2
-        x: 599
-        y: 129
-        width: 268
-        height: 254
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5c4aed71eeddd8800800000000000000
-      internalID: 616392738692048069
+      spriteID: 14d04f1eb01a4c640800000000000000
+      internalID: 5099377750497824065
       vertices: []
       indices: 
       edges: []
@@ -209,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      03_Jump_Down_0: -2259051823166338673
+      03_Jump_Down_1: 1521559801887412556
+      03_Jump_Down_2: 5099377750497824065
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -59,7 +59,7 @@ namespace Characters.AnimationHandler
                 motionFlag = true;
                 ChangeLayer(flyLayerIndex);
                 Animator.SetBool("FlyExit", false);
-                Animator.Play("Fly", flyLayerIndex, 0);
+                Animator.Play("Fly_Up", flyLayerIndex, 0);
             }
         }
 
@@ -95,17 +95,23 @@ namespace Characters.AnimationHandler
 
         public void EndFlyAnimation()
         {
-            FlagInitialize();
-            Animator.SetBool("IsFlying", false);
+            Animator.Play("Fly_Drop", CurrentLayerIndex, 0);
+
+            /*
             foreach (AnimatorControllerParameter parameter in Animator.parameters)
             {
                 if (parameter.type == AnimatorControllerParameterType.Trigger)
                 {
                     Animator.ResetTrigger(parameter.name);
                 }
-            }
+            }*/
+        }
 
-            motionFlag = false;
+        public void EndFlySettingFlag()
+        {
+            ChangeLayer(baseLayerIndex);
+            Animator.SetBool("FlyExit", true);
+            FlagInitialize();
         }
 
         public void EndHasegiAnimation()
