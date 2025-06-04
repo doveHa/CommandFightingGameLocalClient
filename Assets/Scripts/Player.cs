@@ -9,7 +9,6 @@ using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
-    public Vector2 Position;
     private SpriteRenderer spriteRenderer;
     public CharacterAnimatorHandler Animator { get; set; }
     private DataSet leftSide, rightSide;
@@ -17,9 +16,9 @@ public class Player : MonoBehaviour
     public Dictionary<string, ICharacterSkill> PlayerSkills;
 
     public bool isLeft { get; private set; }
-    public bool isGuard;
+    public bool IsGuard { get; set; }
     public bool IsJumping { get; set; }
-    
+
     private int health = 100;
 
     public void Initialize()
@@ -53,20 +52,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SetGuard(bool isGuard)
-    {
-        this.isGuard = isGuard;
-    }
 
 
     public void Hit(int atk)
     {
-        if (isGuard)
-        {
-            Debug.Log("guard");
-            Animator.StartGuardAnimation();
-        }
-        else
+        if (!IsGuard)
         {
             Animator.StartHitAnimation();
             health -= atk;

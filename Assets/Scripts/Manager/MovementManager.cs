@@ -24,12 +24,16 @@ public class MovementManager : MonoBehaviour
         InputActionManager.Manager.Inputs._1PInput.Move.started += PerformP1KeyInput;
         InputActionManager.Manager.Inputs._1PInput.Move.canceled += CancelP1KeyInput;
         InputActionManager.Manager.Inputs._1PInput.Jump.performed += JumpP1KeyInput;
+        InputActionManager.Manager.Inputs._1PInput.Guard.performed += GuardP1KeyInput;
+        InputActionManager.Manager.Inputs._1PInput.Guard.canceled += GuardP1KeyInputCancel;
 
         InputActionManager.Manager.Inputs._2PInput.Move.started += PerformP2KeyInput;
         InputActionManager.Manager.Inputs._2PInput.Move.canceled += CancelP2KeyInput;
         InputActionManager.Manager.Inputs._2PInput.Jump.performed += JumpP2KeyInput;
+        InputActionManager.Manager.Inputs._2PInput.Guard.performed += GuardP2KeyInput;
+        InputActionManager.Manager.Inputs._2PInput.Guard.canceled += GuardP2KeyInputCancel;
     }
-    
+
     void Update()
     {
         GameManager.Manager.P1.Move(p1MoveDirection.x);
@@ -41,15 +45,6 @@ public class MovementManager : MonoBehaviour
         GameManager.Manager.P1.GetComponentInChildren<CharacterAnimatorHandler>().StartWalkAnimation();
 
         p1MoveDirection = ctx.ReadValue<Vector2>();
-        if ((p1MoveDirection.x > 0 && !GameManager.Manager.P1.playerComponent.isLeft)
-            || (p1MoveDirection.x < 0 && GameManager.Manager.P1.playerComponent.isLeft))
-        {
-            GameManager.Manager.P1.playerComponent.SetGuard(true);
-        }
-        else
-        {
-            GameManager.Manager.P1.playerComponent.SetGuard(false);
-        }
     }
 
     private void PerformP2KeyInput(InputAction.CallbackContext ctx)
@@ -57,29 +52,18 @@ public class MovementManager : MonoBehaviour
         GameManager.Manager.P2.GetComponentInChildren<CharacterAnimatorHandler>().StartWalkAnimation();
 
         p2MoveDirection = ctx.ReadValue<Vector2>();
-        if ((p2MoveDirection.x > 0 && !GameManager.Manager.P2.playerComponent.isLeft)
-            || (p2MoveDirection.x < 0 && GameManager.Manager.P2.playerComponent.isLeft))
-        {
-            GameManager.Manager.P2.playerComponent.SetGuard(true);
-        }
-        else
-        {
-            GameManager.Manager.P2.playerComponent.SetGuard(false);
-        }
     }
 
 
     private void CancelP1KeyInput(InputAction.CallbackContext ctx)
     {
         p1MoveDirection = Vector2.zero;
-        GameManager.Manager.P1.playerComponent.SetGuard(false);
         GameManager.Manager.P1.GetComponentInChildren<CharacterAnimatorHandler>().EndWalkAnimation();
     }
 
     private void CancelP2KeyInput(InputAction.CallbackContext ctx)
     {
         p2MoveDirection = Vector2.zero;
-        GameManager.Manager.P2.playerComponent.SetGuard(false);
         GameManager.Manager.P2.GetComponentInChildren<CharacterAnimatorHandler>().EndWalkAnimation();
     }
 
@@ -91,5 +75,27 @@ public class MovementManager : MonoBehaviour
     private void JumpP2KeyInput(InputAction.CallbackContext ctx)
     {
         GameManager.Manager.P2.Jump();
+    }
+
+    private void GuardP1KeyInput(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("StartGuard");
+        GameManager.Manager.P1.SetGuard();
+    }
+
+    private void GuardP2KeyInput(InputAction.CallbackContext ctx)
+    {
+        GameManager.Manager.P2.SetGuard();
+    }
+
+    private void GuardP1KeyInputCancel(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("StopGuard");
+        GameManager.Manager.P1.StopGuard();
+    }
+
+    private void GuardP2KeyInputCancel(InputAction.CallbackContext ctx)
+    {
+        GameManager.Manager.P2.StopGuard();
     }
 }

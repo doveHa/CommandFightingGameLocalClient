@@ -36,6 +36,18 @@ namespace DefaultNamespace
             }
         }
 
+        public void SetGuard()
+        {
+            playerComponent.IsGuard = true;
+            playerComponent.Animator.StartGuardAnimation();
+        }
+
+        public void StopGuard()
+        {
+            playerComponent.IsGuard = false;
+            playerComponent.Animator.EndGuardAnimation();
+        }
+
         public void Punch()
         {
             if (playerComponent.IsJumping)

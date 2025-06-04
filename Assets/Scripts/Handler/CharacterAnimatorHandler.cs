@@ -137,6 +137,13 @@ namespace Handler
         public void StartHitAnimation()
         {
             LockMovement();
+            if (CompareTag("Player"))
+            {
+                InputActionManager.Manager.Inputs._1PInput.Disable();
+            }else if (CompareTag("Opponent"))
+            {
+                InputActionManager.Manager.Inputs._2PInput.Disable();
+            }
             ChangeLayer(baseLayerIndex);
             Animator.SetBool("Hit", true);
             motionFlag = true;
@@ -145,19 +152,25 @@ namespace Handler
 
         public void StartGuardAnimation()
         {
-            LockMovement();
-            Animator.SetBool("IsGuard", true);
+            Animator.SetBool("IsGuard", true);  
         }
 
         public void EndGuardAnimation()
         {
+            Debug.Log("EndGuardAnimation");
             Animator.SetBool("IsGuard", false);
-            UnLockMovement();
         }
 
         public void EndHitAnimation()
         {
             UnLockMovement();
+            if (CompareTag("Player"))
+            {
+                InputActionManager.Manager.Inputs._1PInput.Enable();
+            }else if (CompareTag("Opponent"))
+            {
+                InputActionManager.Manager.Inputs._2PInput.Enable();
+            }
             motionFlag = false;
             Animator.SetBool("Hit", false);
         }

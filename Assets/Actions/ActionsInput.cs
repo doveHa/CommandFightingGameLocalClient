@@ -126,6 +126,15 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Guard"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e4ad7e9-5c12-4dd6-b4a0-40a6220e3e7c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -144,17 +153,6 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
                     ""name"": ""up"",
                     ""id"": ""22de2714-28f0-4872-99f5-47612b17e343"",
                     ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""a8bd5dc1-b1ca-4a46-b8a7-2dfd6f6019d3"",
-                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -282,6 +280,17 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
                     ""action"": ""BasicAtk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""599a0673-5000-4371-98df-db79eeabc99d"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Guard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -324,6 +333,15 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Guard"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef385cac-649e-479b-8e47-54b1286aed46"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -342,17 +360,6 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
                     ""name"": ""up"",
                     ""id"": ""7b8974e9-27cc-40c3-89e1-7ac1873b9f1a"",
                     ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""9fd78523-24b2-4129-8abf-b1e2091df463"",
-                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -480,6 +487,17 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
                     ""action"": ""BasicAtk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7a282fa2-2a8c-401d-a830-402a016ea897"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Guard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -492,12 +510,14 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         m__1PInput_Jump = m__1PInput.FindAction("Jump", throwIfNotFound: true);
         m__1PInput_CommandInput = m__1PInput.FindAction("Command Input", throwIfNotFound: true);
         m__1PInput_BasicAtk = m__1PInput.FindAction("BasicAtk", throwIfNotFound: true);
+        m__1PInput_Guard = m__1PInput.FindAction("Guard", throwIfNotFound: true);
         // 2P Input
         m__2PInput = asset.FindActionMap("2P Input", throwIfNotFound: true);
         m__2PInput_Move = m__2PInput.FindAction("Move", throwIfNotFound: true);
         m__2PInput_Jump = m__2PInput.FindAction("Jump", throwIfNotFound: true);
         m__2PInput_CommandInput = m__2PInput.FindAction("Command Input", throwIfNotFound: true);
         m__2PInput_BasicAtk = m__2PInput.FindAction("BasicAtk", throwIfNotFound: true);
+        m__2PInput_Guard = m__2PInput.FindAction("Guard", throwIfNotFound: true);
     }
 
     ~@ActionsInput()
@@ -583,6 +603,7 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
     private readonly InputAction m__1PInput_Jump;
     private readonly InputAction m__1PInput_CommandInput;
     private readonly InputAction m__1PInput_BasicAtk;
+    private readonly InputAction m__1PInput_Guard;
     /// <summary>
     /// Provides access to input actions defined in input action map "1P Input".
     /// </summary>
@@ -610,6 +631,10 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "_1PInput/BasicAtk".
         /// </summary>
         public InputAction @BasicAtk => m_Wrapper.m__1PInput_BasicAtk;
+        /// <summary>
+        /// Provides access to the underlying input action "_1PInput/Guard".
+        /// </summary>
+        public InputAction @Guard => m_Wrapper.m__1PInput_Guard;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -648,6 +673,9 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
             @BasicAtk.started += instance.OnBasicAtk;
             @BasicAtk.performed += instance.OnBasicAtk;
             @BasicAtk.canceled += instance.OnBasicAtk;
+            @Guard.started += instance.OnGuard;
+            @Guard.performed += instance.OnGuard;
+            @Guard.canceled += instance.OnGuard;
         }
 
         /// <summary>
@@ -671,6 +699,9 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
             @BasicAtk.started -= instance.OnBasicAtk;
             @BasicAtk.performed -= instance.OnBasicAtk;
             @BasicAtk.canceled -= instance.OnBasicAtk;
+            @Guard.started -= instance.OnGuard;
+            @Guard.performed -= instance.OnGuard;
+            @Guard.canceled -= instance.OnGuard;
         }
 
         /// <summary>
@@ -712,6 +743,7 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
     private readonly InputAction m__2PInput_Jump;
     private readonly InputAction m__2PInput_CommandInput;
     private readonly InputAction m__2PInput_BasicAtk;
+    private readonly InputAction m__2PInput_Guard;
     /// <summary>
     /// Provides access to input actions defined in input action map "2P Input".
     /// </summary>
@@ -739,6 +771,10 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "_2PInput/BasicAtk".
         /// </summary>
         public InputAction @BasicAtk => m_Wrapper.m__2PInput_BasicAtk;
+        /// <summary>
+        /// Provides access to the underlying input action "_2PInput/Guard".
+        /// </summary>
+        public InputAction @Guard => m_Wrapper.m__2PInput_Guard;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -777,6 +813,9 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
             @BasicAtk.started += instance.OnBasicAtk;
             @BasicAtk.performed += instance.OnBasicAtk;
             @BasicAtk.canceled += instance.OnBasicAtk;
+            @Guard.started += instance.OnGuard;
+            @Guard.performed += instance.OnGuard;
+            @Guard.canceled += instance.OnGuard;
         }
 
         /// <summary>
@@ -800,6 +839,9 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
             @BasicAtk.started -= instance.OnBasicAtk;
             @BasicAtk.performed -= instance.OnBasicAtk;
             @BasicAtk.canceled -= instance.OnBasicAtk;
+            @Guard.started -= instance.OnGuard;
+            @Guard.performed -= instance.OnGuard;
+            @Guard.canceled -= instance.OnGuard;
         }
 
         /// <summary>
@@ -868,6 +910,13 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnBasicAtk(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Guard" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGuard(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "2P Input" which allows adding and removing callbacks.
@@ -904,5 +953,12 @@ public partial class @ActionsInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnBasicAtk(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Guard" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGuard(InputAction.CallbackContext context);
     }
 }
