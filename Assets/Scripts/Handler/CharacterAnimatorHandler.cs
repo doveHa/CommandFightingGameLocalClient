@@ -110,7 +110,6 @@ namespace Handler
             }
         }
 
-
         public void EndJumpPunchAnimation()
         {
             Debug.Log("EndJumpPunchAnimation");
