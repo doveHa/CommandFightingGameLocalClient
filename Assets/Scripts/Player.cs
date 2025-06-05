@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
         PlayerSkills = new Dictionary<string, ICharacterSkill>();
         PlayerSkills.Add("Atk_Punch", GetComponentInChildren<Punch>());
         PlayerSkills.Add("Atk_Kick", GetComponentInChildren<Punch>());
+        PlayerSkills.Add("Jumping_Attack", GetComponentInChildren<Punch>());
         PlayerSkills.Add("Hasegi", GetComponentInChildren<Hasegi>());
         PlayerSkills.Add("Scratch", GetComponentInChildren<Scratch>());
         PlayerSkills.Add("UpperWing", GetComponentInChildren<UpperWing>());
@@ -51,7 +52,6 @@ public class Player : MonoBehaviour
             DataSet.SetRightSide();
         }
     }
-
 
 
     public void Hit(int atk)

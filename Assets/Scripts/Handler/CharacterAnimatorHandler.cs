@@ -105,14 +105,15 @@ namespace Handler
             {
                 PunchFlagInitialize();
                 ChangeLayer(baseLayerIndex);
-                Animator.SetBool("PunchExit", true);
+                EndAllAnimations();
                 UnLockMovement();
             }
         }
 
         public void EndJumpPunchAnimation()
         {
-            Debug.Log("EndJumpPunchAnimation");
+            Debug.Log("End Jumping_Attack");
+            EndAllAnimations();
             motionFlag = false;
         }
 
@@ -122,7 +123,7 @@ namespace Handler
             {
                 PunchFlagInitialize();
                 ChangeLayer(baseLayerIndex);
-                Animator.SetBool("PunchExit", true);
+                EndAllAnimations();
                 UnLockMovement();
             }
         }
@@ -139,10 +140,12 @@ namespace Handler
             if (CompareTag("Player"))
             {
                 InputActionManager.Manager.Inputs._1PInput.Disable();
-            }else if (CompareTag("Opponent"))
+            }
+            else if (CompareTag("Opponent"))
             {
                 InputActionManager.Manager.Inputs._2PInput.Disable();
             }
+
             ChangeLayer(baseLayerIndex);
             Animator.SetBool("Hit", true);
             motionFlag = true;
@@ -151,7 +154,7 @@ namespace Handler
 
         public void StartGuardAnimation()
         {
-            Animator.SetBool("IsGuard", true);  
+            Animator.SetBool("IsGuard", true);
         }
 
         public void EndGuardAnimation()
@@ -166,12 +169,15 @@ namespace Handler
             if (CompareTag("Player"))
             {
                 InputActionManager.Manager.Inputs._1PInput.Enable();
-            }else if (CompareTag("Opponent"))
+            }
+            else if (CompareTag("Opponent"))
             {
                 InputActionManager.Manager.Inputs._2PInput.Enable();
             }
+
             motionFlag = false;
             Animator.SetBool("Hit", false);
+            EndAllAnimations();
         }
 
         public void StartWalkAnimation()
@@ -184,21 +190,35 @@ namespace Handler
             Animator.SetBool("IsMove", false);
         }
 
-        public void StartJumpAnimation()
+        public bool StartJumpAnimation()
         {
-            Animator.SetTrigger("IsJump");
+            if (CurrentLayerIndex == baseLayerIndex)
+            {
+                Animator.SetTrigger("IsJump");
+                return true;
+            }
+
+            return false;
         }
 
         public void EndJumpAnimation()
         {
             Animator.Play("Jumping_Down", baseLayerIndex, 0);
             motionFlag = false;
+            EndAllAnimations();
+        }
+
+        protected virtual void EndAllAnimations()
+        {
+            Animator.SetBool("PunchExit", true);
         }
 
         protected void ChangeLayer(int targetLayerIndex)
         {
             Animator.SetLayerWeight(CurrentLayerIndex, 0);
+            Debug.Log(CurrentLayerIndex + "Close");
             Animator.SetLayerWeight(targetLayerIndex, 1);
+            Debug.Log(targetLayerIndex + "Open");
             CurrentLayerIndex = targetLayerIndex;
         }
 

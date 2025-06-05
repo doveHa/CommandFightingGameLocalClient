@@ -9,10 +9,11 @@ public class Ground : MonoBehaviour
             Player player = collision.gameObject.GetComponentInParent<Player>();
             if (player.IsJumping)
             {
+                player.IsJumping = false;
                 player.Animator.EndJumpAnimation();
             }
 
-            player.IsJumping = false;
+            //player.IsJumping = false;
         }
     }
 }

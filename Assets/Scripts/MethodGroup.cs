@@ -27,14 +27,14 @@ namespace DefaultNamespace
 
         public void Jump()
         {
-            if (!playerComponent.IsJumping)
+            if (!playerComponent.IsJumping && playerComponent.Animator.StartJumpAnimation())
             {
                 playerComponent.IsJumping = true;
-                playerComponent.Animator.StartJumpAnimation();
                 Rigidbody2D body = gameObject.transform.GetComponentInChildren<Rigidbody2D>();
                 body.AddForce(Vector2.up * ConstController.Manager.JumpForce, ForceMode2D.Impulse);
             }
         }
+
 
         public void SetGuard()
         {
